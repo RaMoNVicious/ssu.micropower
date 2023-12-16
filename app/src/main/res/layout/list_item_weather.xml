@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_x1"
+            android:background="@drawable/bg_weather_forecast"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDate"
+            style="@style/Label.Date.Forecast"
+            android:text="@string/date_time_short_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTemperature"
+            style="@style/Label.Weather.Forecast"
+            android:text="@string/weather_temp_range_value_default"
+            app:layout_constraintBottom_toTopOf="@id/txtPrecipitation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDate"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/txtPrecipitation"
+            style="@style/Label.Weather.Forecast"
+            android:layout_marginVertical="@dimen/margin_x2"
+            android:text="@string/weather_precipitation_probability_value_default"
+            app:layout_constraintBottom_toTopOf="@id/txtWindSpeed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTemperature" />
+
+        <TextView
+            android:id="@+id/txtWindSpeed"
+            style="@style/Label.Weather.Forecast"
+            android:layout_marginEnd="@dimen/margin_x3"
+            android:layout_marginBottom="@dimen/margin_x2"
+            android:text="@string/weather_wind_speed_value_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtPrecipitation" />
+
+        <ImageView
+            android:id="@+id/imgWindDirection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="90"
+            android:src="@drawable/ic_wind_direction"
+            app:layout_constraintBottom_toBottomOf="@id/txtWindSpeed"
+            app:layout_constraintStart_toEndOf="@id/txtWindSpeed"
+            app:layout_constraintTop_toTopOf="@id/txtWindSpeed" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

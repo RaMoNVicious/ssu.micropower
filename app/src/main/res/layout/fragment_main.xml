@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="Boolean" />
+
+        <variable
+            name="isLoadingWeather"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="196dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lstComponents"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/margin_x2"
+            android:background="@drawable/bg_main"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/lstWeather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/list_item_generation_solar"/>
+
+        <ImageButton
+            android:id="@+id/btnLogout"
+            style="@style/Button.Image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_x2"
+            android:background="@null"
+            android:padding="@dimen/margin_x2"
+            android:src="@drawable/ic_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/color_primary" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            style="@style/Label.Date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtConsumption"
+            style="@style/Label.Status"
+            android:text="@string/value_default_kwh"
+            app:drawableStartCompat="@drawable/ic_consumption"
+            app:layout_constraintEnd_toStartOf="@id/txtSell"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTime" />
+
+        <TextView
+            android:id="@+id/txtSell"
+            style="@style/Label.Status"
+            android:text="@string/value_default_kwh"
+            app:drawableStartCompat="@drawable/ic_sell"
+            app:layout_constraintEnd_toStartOf="@id/txtPurchase"
+            app:layout_constraintStart_toEndOf="@id/txtConsumption"
+            app:layout_constraintTop_toBottomOf="@id/txtTime" />
+
+        <TextView
+            android:id="@+id/txtPurchase"
+            style="@style/Label.Status"
+            android:text="@string/value_default_kwh"
+            app:drawableStartCompat="@drawable/ic_buy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtSell"
+            app:layout_constraintTop_toBottomOf="@id/txtTime" />
+
+        <TextView
+            android:id="@+id/txtWeatherTemp"
+            style="@style/Label.Weather.Main"
+            android:text="@string/weather_temp_value_default"
+            app:layout_constraintBottom_toTopOf="@id/guideWeather"
+            app:layout_constraintEnd_toStartOf="@id/txtWeatherPrecipitation"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/txtWeatherPrecipitation"
+            style="@style/Label.Weather.Main"
+            android:text="@string/weather_precipitation_value_default"
+            app:layout_constraintBottom_toTopOf="@id/guideWeather"
+            app:layout_constraintEnd_toStartOf="@id/txtWeatherPressure"
+            app:layout_constraintStart_toEndOf="@id/txtWeatherTemp" />
+
+        <TextView
+            android:id="@+id/txtWeatherPressure"
+            style="@style/Label.Weather.Main"
+            android:text="@string/weather_pressure_value_default"
+            app:layout_constraintBottom_toTopOf="@id/guideWeather"
+            app:layout_constraintEnd_toStartOf="@id/txtWeatherWindSpeed"
+            app:layout_constraintStart_toEndOf="@id/txtWeatherPrecipitation" />
+
+        <TextView
+            android:id="@+id/txtWeatherWindSpeed"
+            style="@style/Label.Weather.Main"
+            android:text="@string/weather_wind_speed_value_default"
+            app:layout_constraintBottom_toTopOf="@id/guideWeather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtWeatherPressure" />
+
+        <TextView
+            android:id="@+id/lblWeatherTemp"
+            style="@style/Label.Hint"
+            android:text="@string/weather_temp_label"
+            app:layout_constraintBottom_toTopOf="@id/txtWeatherTemp"
+            app:layout_constraintEnd_toEndOf="@id/txtWeatherTemp"
+            app:layout_constraintStart_toStartOf="@id/txtWeatherTemp" />
+
+        <TextView
+            android:id="@+id/lblWeatherPrecipitation"
+            style="@style/Label.Hint"
+            android:text="@string/weather_precipitation_label"
+            app:layout_constraintBottom_toTopOf="@id/txtWeatherPrecipitation"
+            app:layout_constraintEnd_toEndOf="@id/txtWeatherPrecipitation"
+            app:layout_constraintStart_toStartOf="@id/txtWeatherPrecipitation" />
+
+        <TextView
+            android:id="@+id/lblWeatherPressure"
+            style="@style/Label.Hint"
+            android:text="@string/weather_pressure_label"
+            app:layout_constraintBottom_toTopOf="@id/txtWeatherPressure"
+            app:layout_constraintEnd_toEndOf="@id/txtWeatherPressure"
+            app:layout_constraintStart_toStartOf="@id/txtWeatherPressure" />
+
+        <TextView
+            android:id="@+id/lblWeatherWind"
+            style="@style/Label.Hint"
+            android:text="@string/weather_wind_speed_label"
+            app:layout_constraintBottom_toTopOf="@id/txtWeatherWindSpeed"
+            app:layout_constraintEnd_toEndOf="@id/txtWeatherWindSpeed"
+            app:layout_constraintStart_toStartOf="@id/txtWeatherWindSpeed" />
+
+        <ImageView
+            android:id="@+id/imgWindDirection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="90"
+            android:src="@drawable/ic_wind_direction"
+            app:layout_constraintBottom_toBottomOf="@id/txtWeatherWindSpeed"
+            app:layout_constraintStart_toEndOf="@id/txtWeatherWindSpeed"
+            app:layout_constraintTop_toTopOf="@id/txtWeatherWindSpeed" />
+
+        <Button
+            android:id="@+id/btnLocations"
+            style="@style/Button.Location"
+            android:maxWidth="240dp"
+            android:text="@string/button_location"
+            app:layout_constraintBottom_toBottomOf="@id/guideWeather"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideWeather" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/prbLoading"
+            style="@style/ProgressBar.Loading"
+            android:visibility="@{isLoading ? View.VISIBLE : View.GONE, default=visible}"
+            app:layout_constraintBottom_toBottomOf="@id/btnLocations"
+            app:layout_constraintStart_toEndOf="@id/btnLocations"
+            app:layout_constraintTop_toTopOf="@id/btnLocations" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lstWeather"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/margin_x2"
+            android:layout_marginTop="@dimen/margin_x12"
+            android:layout_marginBottom="@dimen/margin_x2"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:visibility="@{isLoadingWeather ? View.GONE : View.VISIBLE, default=visible}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideWeather"
+            tools:listitem="@layout/list_item_weather"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/prbLoadingWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="@{isLoadingWeather ? View.VISIBLE : View.GONE, default=visible}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lstWeather" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

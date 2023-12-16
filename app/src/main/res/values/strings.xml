@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Micropower</string>
+
+    <string name="kwh">kWh</string>
+    <string name="kah">kAh</string>
+    <string name="mps">m/s</string>
+    <string name="value_float" translatable="false">%.3f</string>
+    <string name="value_float_short" translatable="false">%.1f</string>
+    <string name="value_kwh">%.3f kWh</string>
+    <string name="value_kah">%.3f kAh</string>
+    <string name="value_default" translatable="false">0.000</string>
+    <string name="value_default_kwh">0.000 kWh</string>
+    <string name="value_default_kah">0.000 kAh</string>
+
+    <string name="auth_title">authorization</string>
+    <string name="auth_login_hint">login</string>
+    <string name="auth_password_hint">password</string>
+    <string name="button_login">Login</string>
+
+    <string name="button_location">Location…</string>
+
+    <string name="date_time_normal" translatable="false">EEE, dd MMM, HH:mm</string>
+    <string name="date_time_normal_default">Mon, 01 Nov, 22:35</string>
+    <string name="date_time_short" translatable="false">dd MMM</string>
+    <string name="date_time_short_default">01 Nov</string>
+
+    <string name="generator_power_max">max power</string>
+    <string name="generator_capacity_max">max capacity</string>
+    <string name="generator_device_item" translatable="false">%1$dx %2$s</string>
+
+    <string name="weather_temp_label">temperature</string>
+    <string name="weather_temp_value" translatable="false">%+.1f°C</string>
+    <string name="weather_temp_value_default" translatable="false">0.0°C</string>
+    <string name="weather_temp_range_value" translatable="false">%1$+d..%2$+d°C</string>
+    <string name="weather_temp_range_value_default" translatable="false">+0.0..+0.0°C</string>
+    <string name="weather_precipitation_label">precipitation</string>
+    <string name="weather_precipitation_value">%.1fmm</string>
+    <string name="weather_precipitation_value_default">0.0mm</string>
+    <string name="weather_precipitation_probability_value" translatable="false">%d%%</string>
+    <string name="weather_precipitation_probability_value_default" translatable="false">0%%</string>
+    <string name="weather_pressure_label">pressure</string>
+    <string name="weather_pressure_value" translatable="false">%.1fhPa</string>
+    <string name="weather_pressure_value_default" translatable="false">1000hPa</string>
+    <string name="weather_wind_speed_label">wind speed</string>
+    <string name="weather_wind_speed_value">%.1fm/s</string>
+    <string name="weather_wind_speed_value_default">0.0m/s</string>
+
+    <string name="location_address_value" translatable="false">%1$s, %2$s</string>
+    <string name="location_coordinates_value" translatable="false">(%1$.4f, %2$.4f)</string>
+</resources>

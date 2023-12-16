@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Micropower</string>
+
+    <string name="kwh">кВт⋅год</string>
+    <string name="kah">кА⋅год</string>
+    <string name="mps">м/с</string>
+    <string name="value_kwh">%.2f кВт⋅год</string>
+    <string name="value_kah">%.2f кА⋅год</string>
+    <string name="value_default_kwh">0.00 кВт⋅год</string>
+    <string name="value_default_kah">0.00 кА⋅год</string>
+
+    <string name="auth_title">авторизація</string>
+    <string name="auth_login_hint">логін</string>
+    <string name="auth_password_hint">пароль</string>
+
+    <string name="button_login">Логін</string>
+    <string name="button_location">Локація…</string>
+
+    <string name="date_time_normal_default">Пон, 01 Лис, 22:35</string>
+    <string name="date_time_short_default">01 Лис</string>
+
+    <string name="generator_power_max">макс. потужність</string>
+    <string name="generator_capacity_max">макс. ємність</string>
+
+    <string name="weather_temp_label">температура</string>
+    <string name="weather_precipitation_label">опади</string>
+    <string name="weather_precipitation_value">%.1fмм</string>
+    <string name="weather_precipitation_value_default">0.0мм</string>
+    <string name="weather_pressure_label">тиск</string>
+    <string name="weather_wind_speed_label">швидкість вітру</string>
+    <string name="weather_wind_speed_value">%.1fм/с</string>
+    <string name="weather_wind_speed_value_default">0.0м/с</string>
+</resources>

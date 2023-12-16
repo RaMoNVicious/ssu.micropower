@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideTop"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="80dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <TextView
+            android:id="@+id/txtPowerMaxHint"
+            style="@style/Label.Hint"
+            android:text="@string/generator_power_max"
+            app:layout_constraintEnd_toEndOf="@id/prbValueCurrent"
+            app:layout_constraintStart_toEndOf="@id/prbValueCurrent"
+            app:layout_constraintTop_toTopOf="@id/guideTop" />
+
+        <TextView
+            android:id="@+id/txtPowerMax"
+            style="@style/Label.Value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/value_default_kwh"
+            app:layout_constraintEnd_toEndOf="@id/prbValueCurrent"
+            app:layout_constraintStart_toEndOf="@id/prbValueCurrent"
+            app:layout_constraintTop_toBottomOf="@id/txtPowerMaxHint" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_generator_solar"
+            app:layout_constraintBottom_toBottomOf="@id/txtPowerMax"
+            app:layout_constraintEnd_toStartOf="@id/prbValueCurrent"
+            app:layout_constraintTop_toTopOf="@id/txtPowerMax"
+            app:tint="@color/color_text_hint" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/prbValueCurrent"
+            style="@style/ProgressBar.Generator"
+            android:layout_marginTop="@dimen/margin_x8"
+            android:progress="66"
+            app:indicatorColor="@color/color_primary"
+            app:indicatorSize="@dimen/indicator_size_outer"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toBottomOf="@id/guideTop" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/prbValueForecast"
+            style="@style/ProgressBar.Generator"
+            android:progress="33"
+            app:indicatorColor="@color/color_secondary"
+            app:indicatorSize="@dimen/indicator_size_inner"
+            app:layout_constraintBottom_toBottomOf="@id/prbValueCurrent"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toTopOf="@id/prbValueCurrent" />
+
+        <ImageView
+            android:id="@+id/imgConditionCurrent"
+            style="@style/ImageCondition"
+            android:src="@drawable/ic_weather_0"
+            app:layout_constraintBottom_toTopOf="@id/txtValueCurrent"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toTopOf="@id/prbValueCurrent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:tint="@color/color_primary" />
+
+        <TextView
+            android:id="@+id/txtValueCurrent"
+            style="@style/Label.Value.Normal"
+            android:text="@string/value_default_kwh"
+            app:layout_constraintBottom_toTopOf="@id/txtDateCurrent"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toBottomOf="@id/imgConditionCurrent" />
+
+        <TextView
+            android:id="@+id/txtDateCurrent"
+            style="@style/Label.Date.Small"
+            app:layout_constraintBottom_toTopOf="@id/pnlDivider"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toBottomOf="@id/txtValueCurrent" />
+
+        <View
+            android:id="@+id/pnlDivider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="@dimen/margin_x12"
+            android:layout_marginVertical="@dimen/margin_x1"
+            android:background="@color/color_text_hint"
+            app:layout_constraintBottom_toTopOf="@id/txtDateForecast"
+            app:layout_constraintEnd_toEndOf="@id/prbValueForecast"
+            app:layout_constraintStart_toStartOf="@id/prbValueForecast"
+            app:layout_constraintTop_toBottomOf="@id/txtDateCurrent" />
+
+
+        <TextView
+            android:id="@+id/txtDateForecast"
+            style="@style/Label.Date.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/txtValueForecast"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toBottomOf="@id/pnlDivider" />
+
+        <TextView
+            android:id="@+id/txtValueForecast"
+            style="@style/Label.Value.Normal"
+            android:text="@string/value_default_kwh"
+            app:layout_constraintBottom_toTopOf="@id/imgConditionForecast"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toBottomOf="@id/txtDateForecast" />
+
+        <ImageView
+            android:id="@+id/imgConditionForecast"
+            style="@style/ImageCondition"
+            android:src="@drawable/ic_weather_0"
+            app:layout_constraintBottom_toBottomOf="@id/prbValueCurrent"
+            app:layout_constraintEnd_toEndOf="@id/guideCenter"
+            app:layout_constraintStart_toStartOf="@id/guideCenter"
+            app:layout_constraintTop_toBottomOf="@id/txtValueForecast"
+            app:tint="@color/color_secondary" />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/pnlDevices"
+            style="@style/ListChip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/prbValueCurrent">
+
+            <include layout="@layout/chip_device" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_x1">4dp</dimen>
+    <dimen name="margin_x2">8dp</dimen>
+    <dimen name="margin_x3">12dp</dimen>
+    <dimen name="margin_x4">16dp</dimen>
+    <dimen name="margin_x7">28dp</dimen>
+    <dimen name="margin_x8">32dp</dimen>
+    <dimen name="margin_x12">48dp</dimen>
+
+    <dimen name="text_small">11sp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_header">22sp</dimen>
+
+    <dimen name="auth_width">240dp</dimen>
+
+    <dimen name="indicator_size_outer">240dp</dimen>
+    <dimen name="indicator_size_inner">204dp</dimen>
+    <dimen name="indicator_thickness_forecast">@dimen/margin_x4</dimen>
+    <dimen name="indicator_thickness_single">@dimen/margin_x7</dimen>
+</resources>
